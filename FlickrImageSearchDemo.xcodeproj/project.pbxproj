@@ -3,18 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B2D4117F269308AD000A4C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4117E269308AD000A4C8A /* AppDelegate.swift */; };
 		B2D41181269308AD000A4C8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41180269308AD000A4C8A /* SceneDelegate.swift */; };
-		B2D41183269308AD000A4C8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41182269308AD000A4C8A /* ViewController.swift */; };
-		B2D41186269308AD000A4C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D41184269308AD000A4C8A /* Main.storyboard */; };
+		B2D41183269308AD000A4C8A /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41182269308AD000A4C8A /* PhotosViewController.swift */; };
 		B2D41188269308AF000A4C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2D41187269308AF000A4C8A /* Assets.xcassets */; };
 		B2D4118B269308AF000A4C8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D41189269308AF000A4C8A /* LaunchScreen.storyboard */; };
 		B2D41196269308B0000A4C8A /* FlickrImageSearchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D41195269308B0000A4C8A /* FlickrImageSearchDemoTests.swift */; };
 		B2D411A1269308B0000A4C8A /* FlickrImageSearchDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D411A0269308B0000A4C8A /* FlickrImageSearchDemoUITests.swift */; };
+		B2D411B026935CA2000A4C8A /* FlickrAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = B2D411AF26935CA2000A4C8A /* FlickrAPIClient */; };
+		B2D411B2269370E1000A4C8A /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D411B1269370E1000A4C8A /* PhotoCell.swift */; };
+		B2D411B4269375B6000A4C8A /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D411B3269375B5000A4C8A /* PhotosViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,7 @@
 		B2D4117B269308AD000A4C8A /* FlickrImageSearchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrImageSearchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D4117E269308AD000A4C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2D41180269308AD000A4C8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B2D41182269308AD000A4C8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B2D41185269308AD000A4C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B2D41182269308AD000A4C8A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		B2D41187269308AF000A4C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2D4118A269308AF000A4C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2D4118C269308AF000A4C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +50,8 @@
 		B2D4119C269308B0000A4C8A /* FlickrImageSearchDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrImageSearchDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D411A0269308B0000A4C8A /* FlickrImageSearchDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrImageSearchDemoUITests.swift; sourceTree = "<group>"; };
 		B2D411A2269308B0000A4C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2D411B1269370E1000A4C8A /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		B2D411B3269375B5000A4C8A /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D411B026935CA2000A4C8A /* FlickrAPIClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +105,9 @@
 			children = (
 				B2D4117E269308AD000A4C8A /* AppDelegate.swift */,
 				B2D41180269308AD000A4C8A /* SceneDelegate.swift */,
-				B2D41182269308AD000A4C8A /* ViewController.swift */,
-				B2D41184269308AD000A4C8A /* Main.storyboard */,
+				B2D41182269308AD000A4C8A /* PhotosViewController.swift */,
+				B2D411B3269375B5000A4C8A /* PhotosViewModel.swift */,
+				B2D411B1269370E1000A4C8A /* PhotoCell.swift */,
 				B2D41187269308AF000A4C8A /* Assets.xcassets */,
 				B2D41189269308AF000A4C8A /* LaunchScreen.storyboard */,
 				B2D4118C269308AF000A4C8A /* Info.plist */,
@@ -144,6 +149,9 @@
 			dependencies = (
 			);
 			name = FlickrImageSearchDemo;
+			packageProductDependencies = (
+				B2D411AF26935CA2000A4C8A /* FlickrAPIClient */,
+			);
 			productName = FlickrImageSearchDemo;
 			productReference = B2D4117B269308AD000A4C8A /* FlickrImageSearchDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,9 @@
 				Base,
 			);
 			mainGroup = B2D41172269308AD000A4C8A;
+			packageReferences = (
+				B2D411AE26935CA2000A4C8A /* XCRemoteSwiftPackageReference "FlickrAPIClient" */,
+			);
 			productRefGroup = B2D4117C269308AD000A4C8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +244,6 @@
 			files = (
 				B2D4118B269308AF000A4C8A /* LaunchScreen.storyboard in Resources */,
 				B2D41188269308AF000A4C8A /* Assets.xcassets in Resources */,
-				B2D41186269308AD000A4C8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D41183269308AD000A4C8A /* ViewController.swift in Sources */,
+				B2D411B2269370E1000A4C8A /* PhotoCell.swift in Sources */,
+				B2D41183269308AD000A4C8A /* PhotosViewController.swift in Sources */,
+				B2D411B4269375B6000A4C8A /* PhotosViewModel.swift in Sources */,
 				B2D4117F269308AD000A4C8A /* AppDelegate.swift in Sources */,
 				B2D41181269308AD000A4C8A /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +308,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B2D41184269308AD000A4C8A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B2D41185269308AD000A4C8A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B2D41189269308AF000A4C8A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -587,6 +591,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2D411AE26935CA2000A4C8A /* XCRemoteSwiftPackageReference "FlickrAPIClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ParthContractor/FlickrAPIClient.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2D411AF26935CA2000A4C8A /* FlickrAPIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2D411AE26935CA2000A4C8A /* XCRemoteSwiftPackageReference "FlickrAPIClient" */;
+			productName = FlickrAPIClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2D41173269308AD000A4C8A /* Project object */;
 }
