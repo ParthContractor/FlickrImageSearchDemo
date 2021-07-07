@@ -2,7 +2,6 @@
 
 
 
-* //TODO: Implement MVVM instead of MVC
 * //TODO: Revisit caching approach and memory consumption (for more performance optimisation)
 * //TODO: Presentation layer test cases
 * //TODO: Label truncation does not look ideal and beter UX approach should be thought of
