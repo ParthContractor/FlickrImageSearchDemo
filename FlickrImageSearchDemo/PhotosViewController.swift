@@ -6,22 +6,14 @@
 //
 
 import UIKit
-import FlickrAPIClient
 
-//TODO: Implement MVVM instead of MVC
 //TODO: Revisit caching approach and memory consumption (for more performance optimisation)
 //TODO: Presentation layer test cases
 //TODO: Label truncation does not look ideal and beter UX approach should be thought of
 //TODO: Pull to refresh functionality possibility
 class PhotosViewController: UIViewController {
     
-    var photos = [Photo]()
-    
-    var currentPage = 1
-    var totalPages: Int64 = 0
-
-    //TODO: Though it is static for now in code, to be optimised in future to take user input by adding search capacity
-    let searchTerm = "river"
+    let viewModel = PhotosViewModel()
 
     let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
 
@@ -44,28 +36,14 @@ class PhotosViewController: UIViewController {
         setupViews()
         setupLayouts()
         loadMore()
-        self.view.addSubview(spinner)
+        view.addSubview(spinner)
+        title = viewModel.screenTitle
     }
-        
-    private func reloadMoreData(completed: () -> Void) {
-        if let photosModel = FlickrPhotosSearchClient().getPhotos(searchText: searchTerm, page: currentPage), photosModel.error == nil {
-            totalPages = photosModel.photos?.pages ?? 0
-            if currentPage > totalPages {
-                completed()
-                //TODO: Add alert view or way to notify user that there are no more photos for this search term
-            }
-            else{
-                photos.append(contentsOf: photosModel.photos?.photo ?? [Photo]())
-                completed()
-            }
-            currentPage = currentPage + 1
-        }
-    }
-    
+            
     private func loadMore() {
         spinner.startAnimating()
         DispatchQueue.global(qos: .userInitiated).async {
-            self.reloadMoreData {
+            self.viewModel.reloadMoreData {
                 self.reloadCollectionView()
             }
         }
@@ -111,12 +89,12 @@ class PhotosViewController: UIViewController {
 
 extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return viewModel.photos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell {
-            let photo = photos[indexPath.row]
+            let photo = viewModel.photos[indexPath.row]
             cell.setup(with: photo)
             return cell
         }
@@ -126,7 +104,7 @@ extension PhotosViewController: UICollectionViewDataSource {
 
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1, currentPage <= totalPages  {
+        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1, viewModel.currentPage <= viewModel.totalPages  {
             loadMore()
         }
     }
