@@ -30,7 +30,7 @@ final class PhotoCell: UICollectionViewCell {
     private let photoImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .red
         return imageView
     }()
 
@@ -48,6 +48,12 @@ final class PhotoCell: UICollectionViewCell {
         setupLayouts()
     }
 
+    override func prepareForReuse() {
+           super.prepareForReuse()
+           self.photoImageView.image = nil
+           self.photoLabel.text = nil
+       }
+    
     private func setupViews() {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = Constants.contentViewCornerRadius
