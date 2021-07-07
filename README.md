@@ -1,9 +1,11 @@
 # FlickrImageSearchDemo
 
 
-* //TODO: (1)PULL to refresh to be implemented later
-* //TODO: (2)MVVM instead of MVC
-* //TODO: (3)Load More for infinite scrolling and loading of images...
-* //TODO: (4)Search functionality to be implemented with user input to search dynamically
-* //TODO: (5)Presenttion layer test cases..
-* //TODO: (6)Sometimes Host name not found WARNING on image loading...
+
+* //TODO: Implement MVVM instead of MVC
+* //TODO: Revisit caching approach and memory consumption (for more performance optimisation)
+* //TODO: Presentation layer test cases
+* //TODO: Label truncation does not look ideal and beter UX approach should be thought of
+* //TODO: Pull to refresh functionality possibility
+* //TODO: Though it is static for now in code("river" is search term considered for example), to be optimised in future to take user input by adding search capacity
+* //TODO: Add alert view or way to notify user that there are no more photos for this search term
