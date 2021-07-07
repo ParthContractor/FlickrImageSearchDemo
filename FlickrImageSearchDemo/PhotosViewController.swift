@@ -11,6 +11,7 @@ import UIKit
 //TODO: Presentation layer test cases
 //TODO: Label truncation does not look ideal and beter UX approach should be thought of
 //TODO: Pull to refresh functionality possibility
+//TODO: Better solutuon in case of internet connection lost while load more
 class PhotosViewController: UIViewController {
     
     let viewModel = PhotosViewModel()
